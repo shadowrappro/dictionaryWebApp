@@ -148,6 +148,10 @@ function Header({ darkMode, setDarkMode, font, setFont }) {
               <p>
                 Audio pause: <kbd>Shift</kbd> + <kbd>&lt;</kbd>
               </p>
+
+              <p>
+                Hot Keys Close: <kbd>Ctrl</kbd> + <kbd>X</kbd>
+              </p>
             </div>
           )}
         </div>
