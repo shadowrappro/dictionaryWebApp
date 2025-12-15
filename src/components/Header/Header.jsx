@@ -50,10 +50,12 @@ function Header({ darkMode, setDarkMode, font, setFont }) {
       if (e.ctrlKey && e.key.toLowerCase() == "q") {
         e.preventDefault();
         setDarkMode(true);
+        localStorage.setItem("darkMode", true);
       }
       if (e.ctrlKey && e.key.toLowerCase() == "b") {
         e.preventDefault();
         setDarkMode(false);
+        localStorage.setItem("darkMode", false);
       }
       if (e.ctrlKey && e.key.toLowerCase() == "x") {
         e.preventDefault();

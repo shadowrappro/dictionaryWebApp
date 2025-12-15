@@ -3,8 +3,11 @@
   width: 100%;
   max-width: 737px;
   margin-left: auto;
+  min-height: auto;
+  position: relative;
   margin-right: auto;
 }
+
 
 .wordInput {
   width: 100%;
@@ -256,9 +259,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20%;
+  margin-top: 30px;
   justify-content: center;
-  width: 660px;
+  width: 100%;
+  max-width: 660px;
   text-align: center;
   gap: 24px;
 }
@@ -352,31 +356,56 @@
   transition: 0.4s ease;
 }
 
+.miniContainer {
+  min-height: 0;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  position: relative; /* MUHIM */
+}
+
+.keyboardButton,
+.keyCont {
+  position: fixed;
+}
+
+
 .keyboardButton {
-  background-color: gray;
+  position: fixed;
+  bottom: 60px;
+
+  left: 58%;
+  transform: translateX(calc(737px / 2 - 80px));
+  /* 737 = container max-width
+     80 = button width */
+
   width: 80px;
   height: 80px;
-  z-index: 100;
   border-radius: 50%;
-  position: fixed;
-  margin-left: 48%;
-  cursor: pointer;
-  margin-top: 28.5%;
+  background: gray;
+  z-index: 9999;
+
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .keyboardButtonHidden {
-  background-color: gray;
+  position: fixed;
+  bottom: 60px;
+
+  left: 58%;
+  transform: translateX(calc(737px / 2 - 80px));
+  /* 737 = container max-width
+     80 = button width */
+
   width: 80px;
   height: 80px;
-  z-index: 100;
   border-radius: 50%;
-  position: fixed;
-  margin-left: 48%;
-  cursor: pointer;
-  margin-top: 28.5%;
+  background: gray;
+  z-index: 9999;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -396,4 +425,54 @@
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 1350px) {
+  .keyboardButton {
+    display: none;
+  }
+
+  .keyboardButtonHidden {
+    display: none;
+  }
+
+  .miniContainer {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .keyboardButton {
+    left: auto;
+    right: 20px;
+    transform: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .word {
+    font-size: 45px;
+  }
+  .readingWord {
+    font-size: 21px;
+  }
+  .playButton {
+    margin-top: -20px;
+    width: 65px;
+    height: 65px;
+  }
+}
+
+@media (max-width: 470px) {
+  .word {
+    font-size: 32px;
+  }
+  .readingWord {
+    font-size: 18px;
+  }
+  .playButton {
+    margin-top: -20px;
+    width: 55px;
+    height: 55px;
+  }
 }

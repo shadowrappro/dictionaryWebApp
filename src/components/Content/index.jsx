@@ -4,6 +4,7 @@ import playButton from "/images/icon-play.svg";
 import pauseButton from "/images/pause.png";
 import newWindow from "/images/icon-new-window.svg";
 import keyboardImg from "/images/keyboard.png";
+import errorSmile from "/images/smile.png"
 
 function index({ darkMode, font }) {
   const [error, setError] = useState(false);
@@ -149,128 +150,132 @@ function index({ darkMode, font }) {
         }}
       ></audio>
 
-      <div className={`${openKeyboard ? styles["keyCont"] : styles["hidden"]}`}>
-        <span className={styles.tempDisplay}>{keyInWord.word}</span>
+      <div className={styles.miniContainer}>
         <div
-          className={styles.keyboard}
-          onClick={(evt) => {
-            const key = evt.target.getAttribute("data-font");
-            if (!key) return;
-
-            setKeyInWord((prev) => {
-              if (key === "Close") {
-                return { ...prev, word: "" };
-              } else if (key === "Enter") {
-                setInputWord(prev.word);
-                sendWord(prev.word);
-                setOpenKeyboard(false);
-                return prev;
-              } else {
-                return { ...prev, word: prev.word + key };
-              }
-            });
-          }}
+          className={`${openKeyboard ? styles["keyCont"] : styles["hidden"]}`}
         >
-          <div data-font="a" className={styles.key}>
-            A
-          </div>
-          <div data-font="b" className={styles.key}>
-            B
-          </div>
-          <div data-font="c" className={styles.key}>
-            C
-          </div>
-          <div data-font="d" className={styles.key}>
-            D
-          </div>
-          <div data-font="e" className={styles.key}>
-            E
-          </div>
-          <div data-font="f" className={styles.key}>
-            F
-          </div>
-          <div data-font="g" className={styles.key}>
-            G
-          </div>
-          <div data-font="h" className={styles.key}>
-            H
-          </div>
-          <div data-font="i" className={styles.key}>
-            I
-          </div>
-          <div data-font="j" className={styles.key}>
-            J
-          </div>
-          <div data-font="k" className={styles.key}>
-            K
-          </div>
-          <div data-font="l" className={styles.key}>
-            L
-          </div>
-          <div data-font="m" className={styles.key}>
-            M
-          </div>
-          <div data-font="n" className={styles.key}>
-            N
-          </div>
-          <div data-font="o" className={styles.key}>
-            O
-          </div>
-          <div data-font="p" className={styles.key}>
-            P
-          </div>
-          <div data-font="q" className={styles.key}>
-            Q
-          </div>
-          <div data-font="r" className={styles.key}>
-            R
-          </div>
-          <div data-font="s" className={styles.key}>
-            S
-          </div>
-          <div data-font="t" className={styles.key}>
-            T
-          </div>
-          <div data-font="u" className={styles.key}>
-            U
-          </div>
-          <div data-font="v" className={styles.key}>
-            V
-          </div>
-          <div data-font="w" className={styles.key}>
-            W
-          </div>
-          <div data-font="x" className={styles.key}>
-            X
-          </div>
-          <div data-font="y" className={styles.key}>
-            Y
-          </div>
-          <div data-font="z" className={styles.key}>
-            Z
-          </div>
-          <div data-font="Enter" className={styles.key}>
-            Enter
-          </div>
-          <div data-font="Close" className={styles.key}>
-            BckSpc
+          <span className={styles.tempDisplay}>{keyInWord.word}</span>
+          <div
+            className={styles.keyboard}
+            onClick={(evt) => {
+              const key = evt.target.getAttribute("data-font");
+              if (!key) return;
+
+              setKeyInWord((prev) => {
+                if (key === "Close") {
+                  return { ...prev, word: "" };
+                } else if (key === "Enter") {
+                  setInputWord(prev.word);
+                  sendWord(prev.word);
+                  setOpenKeyboard(false);
+                  return prev;
+                } else {
+                  return { ...prev, word: prev.word + key };
+                }
+              });
+            }}
+          >
+            <div data-font="a" className={styles.key}>
+              A
+            </div>
+            <div data-font="b" className={styles.key}>
+              B
+            </div>
+            <div data-font="c" className={styles.key}>
+              C
+            </div>
+            <div data-font="d" className={styles.key}>
+              D
+            </div>
+            <div data-font="e" className={styles.key}>
+              E
+            </div>
+            <div data-font="f" className={styles.key}>
+              F
+            </div>
+            <div data-font="g" className={styles.key}>
+              G
+            </div>
+            <div data-font="h" className={styles.key}>
+              H
+            </div>
+            <div data-font="i" className={styles.key}>
+              I
+            </div>
+            <div data-font="j" className={styles.key}>
+              J
+            </div>
+            <div data-font="k" className={styles.key}>
+              K
+            </div>
+            <div data-font="l" className={styles.key}>
+              L
+            </div>
+            <div data-font="m" className={styles.key}>
+              M
+            </div>
+            <div data-font="n" className={styles.key}>
+              N
+            </div>
+            <div data-font="o" className={styles.key}>
+              O
+            </div>
+            <div data-font="p" className={styles.key}>
+              P
+            </div>
+            <div data-font="q" className={styles.key}>
+              Q
+            </div>
+            <div data-font="r" className={styles.key}>
+              R
+            </div>
+            <div data-font="s" className={styles.key}>
+              S
+            </div>
+            <div data-font="t" className={styles.key}>
+              T
+            </div>
+            <div data-font="u" className={styles.key}>
+              U
+            </div>
+            <div data-font="v" className={styles.key}>
+              V
+            </div>
+            <div data-font="w" className={styles.key}>
+              W
+            </div>
+            <div data-font="x" className={styles.key}>
+              X
+            </div>
+            <div data-font="y" className={styles.key}>
+              Y
+            </div>
+            <div data-font="z" className={styles.key}>
+              Z
+            </div>
+            <div data-font="Enter" className={styles.key}>
+              Enter
+            </div>
+            <div data-font="Close" className={styles.key}>
+              BckSpc
+            </div>
           </div>
         </div>
-      </div>
 
-      <span
-        onClick={() => {
-          setOpenKeyboard(!openKeyboard);
-          setKeyInWord({ ...prev, word: "" });
-        }}
-        className={`${
-          openKeyboard
-            ? styles["keyboardButton"]
-            : styles["keyboardButtonHidden"]
-        }`}
-      >
-        <img src={keyboardImg} width={48} height={48} alt="keyboard icon" />
-      </span>
+        <span
+          onClick={() => {
+            setOpenKeyboard(!openKeyboard);
+            setKeyInWord({ ...prev, word: "" });
+          }}
+          className={`${
+            openKeyboard
+              ? styles["keyboardButton"]
+              : styles["keyboardButtonHidden"]
+          }`}
+        >
+          <img src={keyboardImg} width={48} height={48} alt="keyboard icon" />
+        </span>
+      </div>
 
       {loading && (
         <h1
@@ -516,6 +521,7 @@ function index({ darkMode, font }) {
             darkMode ? styles["dark-mode"] : ""
           }`}
         >
+          <img src={errorSmile} alt="emoji-image" />
           <h2>No Definitions Found</h2>
           <p>
             Sorry pal, we couldn't find definitions for the word you were
